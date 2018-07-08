@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rust中的JS对象 - The `wasm-bindgen` Guide</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">8.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">8.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html" class="active"><strong aria-hidden="true">8.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">8.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">8.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">8.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">8.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">8.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">8.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">8.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">8.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">8.2.</strong> 团队</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The `wasm-bindgen` Guide</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="design/js-objects-in-rust.zh.html#polyfill-forjs-objects-in-wasm" id="polyfill-forjs-objects-in-wasm"><h1>Polyfill for&quot;JS objects in wasm&quot;</h1></a>
+<p>其中一个主要目标是<code>wasm-bindgen</code>是允许在wasm中使用和传递JS对象,但今天不允许这样做!虽然确实如此,但这就是polyfill的用武之地.</p>
+<p>这里的问题是我们如何将JS对象鞋拔成一个<code>u32</code>对于使用ism. 此方法的当前策略是在生成的中维护两个模块局部变量<code>foo.js</code>file: 堆栈和堆.</p>
+<a class="header" href="design/js-objects-in-rust.zh.html#a堆栈上的临时js对象" id="a堆栈上的临时js对象"><h3>堆栈上的临时JS对象</h3></a>
+<p>堆栈中<code>foo.js</code>是,堆栈. JS对象被推送到堆栈的顶部,它们在堆栈中的索引是传递给wasm的标识符. 然后,JS对象也只从堆栈顶部移除. 这种数据结构主要用于有效地将JS对象传递给wasm而不需要&quot;堆分配&quot;. 然而,它的缺点是它只适用于当wasm不能保留JS对象时 (也就是说它只能用Rust的说法获得&quot;引用&quot;) .</p>
+<p>我们来看一个例子.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// foo.rs
+#[wasm_bindgen]
+pub fn foo(a: &amp;JsValue) {
+    // ...
+}
+#}</code></pre></pre>
+<p>我们在这里使用特殊的<code>JsValue</code>从中输入<code>wasm-bindgen</code>图书馆本身. 我们的出口功能,<code>foo</code>拿一个<em>参考</em>到一个对象. 这显然意味着它不能将对象持久化超过此函数调用的生命周期.</p>
+<p>现在我们实际想要生成的是一个看起来像的JS模块 (在Typescript用语中)</p>
+<pre><code class="language-ts">// foo.d.ts
+export function foo(a: any);
+</code></pre>
+<p>我们实际生成的东西看起来像:</p>
+<pre><code class="language-js">// foo.js
+import * as wasm from './foo_bg';
+
+let stack = [];
+
+function addBorrowedObject(obj) {
+  stack.push(obj);
+  return stack.length - 1;
+}
+
+export function foo(arg0) {
+  const idx0 = addBorrowedObject(arg0);
+  try {
+    wasm.foo(idx0);
+  } finally {
+    stack.pop();
+  }
+}
+</code></pre>
+<p>在这里,我们可以看到一些值得注意的行动点:</p>
+<ul>
+<li>wasm文件已重命名为<code>foo_bg.wasm</code>,我们可以看到这里生成的JS模块是如何从wasm文件导入的.</li>
+<li>接下来我们可以看到我们<code>stack</code>模块变量,用于从堆栈中推送/弹出项目.</li>
+<li>我们的出口功能<code>foo</code>,任意争论,<code>arg0</code>,转换为索引<code>addBorrowedObject</code>对象功能. 然后将索引传递给wasm,因此ism可以使用它.</li>
+<li>最后,我们有一个<code>finally</code>它释放堆栈槽,因为它不再使用,发出一个<code>pop</code>对于在函数开始时推送的内容.</li>
+</ul>
+<p>挖掘Rust的一面也很有帮助,看看那里发生了什么!我们来看看那些代码<code>#[wasm_bindgen]</code>在Rust生成:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// what the user wrote
+pub fn foo(a: &amp;JsValue) {
+    // ...
+}
+
+#[export_name = &quot;foo&quot;]
+pub extern fn __wasm_bindgen_generated_foo(arg0: u32) {
+    let arg0 = unsafe {
+        ManuallyDrop::new(JsValue::__from_idx(arg0))
+    };
+    let arg0 = &amp;*arg0;
+    foo(arg0);
+}
+#}</code></pre></pre>
+<p>和JS一样,这里值得注意的要点是:</p>
+<ul>
+<li>原来的功能,<code>foo</code>,在输出中未经修改</li>
+<li>这里生成的函数 (具有唯一名称) 是实际从wasm模块导出的函数</li>
+<li>我们生成的函数接受一个整数参数 (我们的索引) ,然后将其包装在一个<code>JsValue</code>. 这里有一些不值得进入的诡计,但我们会稍微看一下发生在幕后的事情.</li>
+</ul>
+<a class="header" href="design/js-objects-in-rust.zh.html#a板中长寿的js对象" id="a板中长寿的js对象"><h3>板中长寿的JS对象</h3></a>
+<p>当JS对象仅在Rust中临时使用时,上述策略很有用,例如仅在一次函数调用期间. 但有时,对象可能具有动态生命周期,或者需要存储在Rust的堆上. 为了解决这个问题,JS对象的后半部分是一个平板.</p>
+<p>传递给wasm的JS对象不是引用,假定在wasm模块内部具有动态生命周期. 因此,堆栈的严格推送/弹出将不起作用,我们需要更多的JS对象永久存储. 为了应对这种情况,我们建立了自己的&quot;板块分配器&quot;.</p>
+<p>一张图片 (或代码) 值得一千个字,所以让我们展示一个例子会发生什么.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// foo.rs
+#[wasm_bindgen]
+pub fn foo(a: JsValue) {
+    // ...
+}
+#}</code></pre></pre>
+<p>请注意<code>&amp;</code>在前面缺少<code>JsValue</code>我们之前有过,而在Rust的说法中,这意味着它取得了JS值的所有权. 导出的ES模块接口与以前相同,但所有权机制略有不同. 让我们看一下生成的JS板块:</p>
+<pre><code class="language-js">import * as wasm from './foo_bg'; // imports from wasm file
+
+let slab = [];
+let slab_next = 0;
+
+function addHeapObject(obj) {
+  if (slab_next === slab.length)
+    slab.push(slab.length + 1);
+  const idx = slab_next;
+  const next = slab[idx];
+  slab_next = next;
+  slab[idx] = { obj, cnt: 1 };
+  return idx;
+}
+
+export function foo(arg0) {
+  const idx0 = addHeapObject(arg0);
+  wasm.foo(idx0);
+}
+
+export function __wbindgen_object_drop_ref(idx) {
+  let obj = slab[idx];
+  obj.cnt -= 1;
+  if (obj.cnt &gt; 0)
+    return;
+  // If we hit 0 then free up our space in the slab
+  slab[idx] = slab_next;
+  slab_next = idx;
+}
+</code></pre>
+<p>不像以前我们现在打电话<code>addHeapObject</code>关于这个论点<code>foo</code>而不是<code>addBorrowedObject</code>. 这个功能会用到<code>slab</code>和<code>slab_next</code>作为slab分配器获取存储对象的槽,一旦找到它就放置一个结构.</p>
+<p>注意,除了存储对象之外,还使用引用计数. 这样我们就可以在不使用的情况下在Rust中创建对JS对象的多个引用<code>Rc</code>,但总的来说,担心这一点并不重要.</p>
+<p>这个生成的模块的另一个奇怪的方面是<code>__wbindgen_object_drop_ref</code>功能. 这是一个实际上是从wasm导入而不是在这个模块中使用的!此函数用于表示a的生命周期结束<code>JsValue</code>在Rust中,或者换句话说,当它超出范围时. 否则,虽然这个功能很大程度上只是一个普通的&quot;无板&quot;实现.</p>
+<p>最后,让我们再看一下Rust生成的内容:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// what the user wrote
+pub fn foo(a: JsValue) {
+    // ...
+}
+
+#[export_name = &quot;foo&quot;]
+pub extern fn __wasm_bindgen_generated_foo(arg0: u32) {
+    let arg0 = unsafe {
+        JsValue::__from_idx(arg0)
+    };
+    foo(arg0);
+}
+#}</code></pre></pre>
+<p>啊,看起来更熟悉!这里没有太多有趣的事情发生,所以让我们继续......</p>
+<a class="header" href="design/js-objects-in-rust.zh.html#a解剖学jsvalue" id="a解剖学jsvalue"><h3>解剖学<code>JsValue</code></h3></a>
+<p>目前<code>JsValue</code>在Rust中,struct实际上非常简单,它是:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub struct JsValue {
+    idx: u32,
+}
+
+// &quot;private&quot; constructors
+
+impl Drop for JsValue {
+    fn drop(&amp;mut self) {
+        unsafe {
+            __wbindgen_object_drop_ref(self.idx);
+        }
+    }
+}
+#}</code></pre></pre>
+<p>或者换句话说,它是一个新的类型包装器<code>u32</code>,我们从ism传递的索引. 这里的析构函数就是这里的<code>__wbindgen_object_drop_ref</code>函数被调用以放弃我们对JS对象的引用计数,从而释放我们的插槽<code>slab</code>我们在上面看到了.</p>
+<p>如果你还记得,当我们采取<code>&amp;JsValue</code>上面我们生成了一个包装器<code>ManuallyDrop</code>围绕本地绑定,这是因为我们想避免在对象来自堆栈时调用此析构函数.</p>
+<a class="header" href="design/js-objects-in-rust.zh.html#a索引板和堆栈" id="a索引板和堆栈"><h3>索引板和堆栈</h3></a>
+<p>您可能在想这个系统可能不起作用!平板和堆栈的索引混合在一起,但我们如何区分?事实证明,上面的例子已经简化了一些,但是最低位当前用作指示你是slab还是堆栈索引.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="design.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="design/exporting-rust.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="design.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="design/exporting-rust.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>从 JS 导入函数 - The `wasm-bindgen` Guide</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">8.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">8.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">8.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">8.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">8.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">8.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html" class="active"><strong aria-hidden="true">8.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">8.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">8.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">8.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">8.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">8.2.</strong> 团队</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The `wasm-bindgen` Guide</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="design/importing-js.zh.html#a从js导入函数" id="a从js导入函数"><h1>从JS导入函数</h1></a>
+<p>现在我们已经向JS导出了一些丰富的功能,现在也是时候导入一些了!这里的目标是基本实现JS<code>import</code>Rust中的语句,具有花哨的类型和所有.</p>
+<p>首先,假设我们反转上面的函数,而不是想在JS中生成问候语,但是从Rust调用它. 例如,我们可能会:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen(module = &quot;./greet&quot;)]
+extern {
+    fn greet(a: &amp;str) -&gt; String;
+}
+
+fn other_code() {
+    let greeting = greet(&quot;foo&quot;);
+    // ...
+}
+#}</code></pre></pre>
+<p>导入的基本思想与导出相同,因为我们在JS和Rust中都有垫片进行必要的翻译. 让我们首先看看JS Shim的实际应用:</p>
+<pre><code class="language-js">import * as wasm from './foo_bg';
+
+import { greet } from './greet';
+
+// ...
+
+export function __wbg_f_greet(ptr0, len0, wasmretptr) {
+  const [retptr, retlen] = passStringToWasm(greet(getStringFromWasm(ptr0, len0)));
+  (new Uint32Array(wasm.memory.buffer))[wasmretptr / 4] = retlen;
+  return retptr;
+}
+</code></pre>
+<p>该<code>getStringFromWasm</code>和<code>passStringToWasm</code>和我们之前看到的一样,和我一样<code>__wbindgen_object_drop_ref</code>远远高于我们现在从我们的模块出来的这个奇怪的出口!该<code>__wbg_f_greet</code>功能是由...产生的<code>wasm-bindgen</code>实际上是进口的<code>foo.wasm</code>模块.</p>
+<p>生成的<code>foo.js</code>我们看到从中进口<code>./greet</code>模块与<code>greet</code>name (是Rust中的函数导入说) 然后是<code>__wbg_f_greet</code>功能是填充导入.</p>
+<p>这里有一些棘手的ABI业务,所以让我们来看看生成的Rust. 像之前一样简化了实际生成的内容.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+extern fn greet(a: &amp;str) -&gt; String {
+    extern {
+        fn __wbg_f_greet(a_ptr: *const u8, a_len: usize, ret_len: *mut usize) -&gt; *mut u8;
+    }
+    unsafe {
+        let a_ptr = a.as_ptr();
+        let a_len = a.len();
+        let mut __ret_strlen = 0;
+        let mut __ret_strlen_ptr = &amp;mut __ret_strlen as *mut usize;
+        let _ret = __wbg_f_greet(a_ptr, a_len, __ret_strlen_ptr);
+        String::from_utf8_unchecked(
+            Vec::from_raw_parts(_ret, __ret_strlen, __ret_strlen)
+        )
+    }
+}
+#}</code></pre></pre>
+<p>在这里我们可以看到<code>greet</code>函数是生成的,但它主要只是一个垫片<code>__wbg_f_greet</code>我们正在打电话的功能. 参数的ptr / len对作为两个参数传递,对于返回值,我们在直接接收返回的指针时间接接收一个值 (长度) .</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="design/export-customization.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="design/importing-js-struct.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="design/export-customization.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="design/importing-js-struct.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

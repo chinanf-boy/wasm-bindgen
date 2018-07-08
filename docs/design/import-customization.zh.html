@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>定制 导入  - The `wasm-bindgen` Guide</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">8.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">8.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">8.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">8.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">8.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">8.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">8.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">8.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html" class="active"><strong aria-hidden="true">8.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">8.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">8.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">8.2.</strong> 团队</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The `wasm-bindgen` Guide</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="design/import-customization.zh.html#a自定义导入行为" id="a自定义导入行为"><h1>自定义导入行为</h1></a>
+<p>该<code>#[wasm_bindgen]</code>macro支持大量配置,用于精确控制导入导入的方式以及它们在JS中映射的内容. 本节旨在有希望成为可能性的详尽参考!</p>
+<ul>
+<li>
+<p><code>module</code>和<code>version</code>- 我们见过<code>module</code>到目前为止表明我们可以从哪里导入物品<code>version</code>也允许:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen(module = &quot;moment&quot;, version = &quot;^2.0.0&quot;)]
+extern {
+    type Moment;
+    fn moment() -&gt; Moment;
+    #[wasm_bindgen(method)]
+    fn format(this: &amp;Moment) -&gt; String;
+}
+#}</code></pre></pre>
+<p>该<code>module</code>key用于配置从中导入每个项目的模块. 该<code>version</code>key不会影响生成的wasm本身,而是对像这样的工具的信息指令[WASM包-]. 像wasm-pack这样的工具会生成一个<code>package.json</code>为了你和<code>version</code>列在这里的时候<code>module</code>也是一个NPM包,将对应于写下来的内容<code>package.json</code>.</p>
+<p>换句话说就是用法<code>module</code>作为NPM包的名称和<code>version</code>因为版本要求允许您在Rust中内联,它依赖于NPM生态系统并从这些包中导入功能. 当捆绑一个像工具[WASM包-]一切都将自动与捆绑商联系,你应该好好去!</p>
+<p>请注意<code>version</code>是<em>需要</em>如果<code>module</code>不是从一开始<code>./</code>. 如果<code>module</code>以. . 开始<code>./</code>那么提供版本是错误的.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>catch</code>- 此属性允许捕获JS异常. 这可以附加到任何导入的函数,函数必须返回一个<code>Result</code>哪里<code>Err</code>有效载荷是一个<code>JsValue</code>,像这样:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    #[wasm_bindgen(catch)]
+    fn foo() -&gt; Result&lt;(), JsValue&gt;;
+}
+#}</code></pre></pre>
+<p>如果导入的函数抛出异常则<code>Err</code>将返回,但引发的异常,以及其他方式<code>Ok</code>与函数的结果一起返回.</p>
+<p>默认<code>wasm-bindgen</code>当wasm调用最终抛出异常的JS函数时,将不执行任何操作. 现在,wasm规范不支持堆栈展开,因此不支持Rust代码<strong>不会执行析构函数</strong>. 不幸的是,这可能导致Rust中的内存泄漏,但是只要wasm实现捕获异常,我们一定会添加支持!</p>
+</li>
+<li>
+<p><code>constructor</code>- 这用于表示被绑定的函数应该实际转换为a<code>new</code>JS中的构造函数. 最后一个参数必须是从JS导入的类型,它将在JS中使用:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    type Foo;
+    #[wasm_bindgen(constructor)]
+    fn new() -&gt; Foo;
+}
+#}</code></pre></pre>
+<p>这将附上<code>new</code>功能<code>Foo</code>类型 (暗示<code>constructor</code>并且在JS中调用此函数时它将等效于<code>new Foo()</code>.</p>
+</li>
+<li>
+<p><code>method</code>- 这是通过方法等向导入的对象添加方法或以其他方式访问对象的属性的门户. 这应该是为了做相同的表达式<code>foo.bar()</code>在JS中.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    type Foo;
+    #[wasm_bindgen(method)]
+    fn work(this: &amp;Foo);
+}
+#}</code></pre></pre>
+<p>a的第一个参数<code>method</code>注释必须是附加方法所附类型的借用引用 (不可变,共享) . 在这种情况下,我们可以像这样调用这个方法<code>foo.work()</code>在JS (其中<code>foo</code>有类型<code>Foo</code>) .</p>
+<p>在JS中,这个调用将对应于访问<code>Foo.prototype.work</code>然后在调用import时调用它. 注意<code>method</code>默认情况下意味着经历<code>prototype</code>获取函数指针.</p>
+</li>
+<li>
+<p><code>js_namespace</code>- 此属性指示通过特定名称空间访问JS类型. 比如说<code>WebAssembly.Module</code>API都是通过<code>WebAssembly</code>命名空间. 该<code>js_namespace</code>可以应用于任何导入,并且只要生成的JS尝试引用名称 (如类或函数名称) ,就可以通过此命名空间访问它.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &amp;str);
+}
+#}</code></pre></pre>
+<p>这是如何绑定的示例<code>console.log(x)</code>在Rust. 该<code>log</code>函数将在Rust模块中可用,并将作为调用<code>console.log</code>在JS中.</p>
+</li>
+<li>
+<p><code>getter</code>和<code>setter</code>- 这两个属性可以结合使用<code>method</code>表明这是一个getter或setter方法. 一个<code>getter</code>默认情况下,-tagged函数访问与getter函数同名的JS属性. 一个<code>setter</code>的功能名称目前需要以&quot;set&quot;开头_&quot;它访问的属性是&quot;set之后的后缀_&quot;.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    type Foo;
+    #[wasm_bindgen(method, getter)]
+    fn property(this: &amp;Foo) -&gt; u32;
+    #[wasm_bindgen(method, setter)]
+    fn set_property(this: &amp;Foo, val: u32);
+}
+#}</code></pre></pre>
+<p>我们在这里导入<code>Foo</code>键入并定义访问每个对象的能力<code>property</code>属性. 这里的第一个函数是一个getter,将在Rust中可用<code>foo.property()</code>,后者是可以访问的setter<code>foo.set_property(2)</code>. 请注意,这两个函数都有<code>this</code>他们被标记的论点<code>method</code>.</p>
+<p>最后,您还可以将参数传递给<code>getter</code>和<code>setter</code>用于配置访问哪个属性的属性. 显式指定属性时,方法名称没有限制. 例如,以下内容相当于上述内容:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    type Foo;
+    #[wasm_bindgen(method, getter = property)]
+    fn assorted_method_name(this: &amp;Foo) -&gt; u32;
+    #[wasm_bindgen(method, setter = &quot;property&quot;)]
+    fn some_other_method_name(this: &amp;Foo, val: u32);
+}
+#}</code></pre></pre>
+<p>JS中的属性可以通过访问<code>Object.getOwnPropertyDescriptor</code>. 请注意,这通常仅适用于类类定义的属性,这些属性不仅仅是任何旧对象的附加属性. 要访问对象上的任何旧属性,我们可以使用...</p>
+</li>
+<li>
+<p><code>structural</code>- 这是一面旗帜<code>method</code>注释表明应该以结构方式访问被访问的方法 (或具有getter / setter的属性) . 例如,方法是<em>不</em>通过访问<code>prototype</code>和属性直接在对象上访问而不是通过<code>Object.getOwnPropertyDescriptor</code>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    type Foo;
+    #[wasm_bindgen(method, structural)]
+    fn bar(this: &amp;Foo);
+    #[wasm_bindgen(method, getter, structural)]
+    fn baz(this: &amp;Foo) -&gt; u32;
+}
+#}</code></pre></pre>
+<p>这里的类型,<code>Foo</code>,不需要存在于JS中 (它没有被引用) . 相反,wasm-bindgen将生成将访问传入的JS值的填充程序<code>bar</code>财产到或<code>baz</code>财产 (取决于职能) .</p>
+</li>
+<li>
+<p><code>js_name = foo</code>- 这可以用于绑定JS中的不同函数,而不是Rust中定义的标识符. 例如,您还可以在JS中为多态函数定义多个签名:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+#[wasm_bindgen]
+extern {
+    type Foo;
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_string(s: &amp;str);
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_u32(n: u32);
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_many(a: u32, b: JsValue);
+}
+#}</code></pre></pre>
+<p>所有这些功能都会调用<code>console.log</code>在Rust中,但每个标识符在Rust中只有一个签名.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="design/importing-js-struct.zh.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="design/rust-type-conversions.zh.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="design/importing-js-struct.zh.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="design/rust-type-conversions.zh.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>
