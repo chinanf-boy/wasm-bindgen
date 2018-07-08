@@ -5,7 +5,7 @@
 
 **促进wasm模块和JavaScript之间的高级交互.**
 
-[rustwasm/wasm-bindgen/guide 原文 commit ⏰  2018 7.4 5:55](https://github.com/rustwasm/wasm-bindgen/tree/3092beb4e4103459286b50f5ee161834ba1d117f)
+[rustwasm/wasm-bindgen/guide 原文 commit ⏰  2018 7.7 12:](https://github.com/rustwasm/wasm-bindgen/tree/175319c1e0438e485d991b7f01abbb078797869e)
 
 [👋 更多中文翻译](https://github.com/chinanf-boy/chinese-translate-list)
 
@@ -37,8 +37,8 @@
 
 * * *
 
-- [ ] [8. 贡献](./guide/src/contributing.zh.md)
-    - [ ] [9. 内部设计](./guide/src/design.zh.md)
+- [x] [8. 贡献](./guide/src/contributing.zh.md)
+    - [x] [9. 内部设计](./guide/src/design.zh.md)
         - [ ] [10. Rust中的JS对象](./guide/src/design/js-objects-in-rust.zh.md)
         - [ ] [11. 将函数导出到JS](./guide/src/design/exporting-rust.zh.md)
         - [ ] [12. 将 struct 导出到JS](./guide/src/design/exporting-rust-struct.zh.md)

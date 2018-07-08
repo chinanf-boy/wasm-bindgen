@@ -1,11 +1,11 @@
 
-# 有助于`wasm-bindgen`
+# 帮助`wasm-bindgen`
 
-本节包含有关如何启动和运行此项目以进行开发的说明. 
+本节包含有关如何 启动和运行 此项目以进行开发的说明. 
 
 ## 先决条件
 
-1.  Rust Nightly. [安装Rust]. 安装Rust后,运行
+1.  Rust Nightly. [install Rust]. 安装 Rust 后,运行
 
     ```shell
     rustup default nightly
@@ -14,17 +14,17 @@
 
 [install rust]: https://www.rust-lang.org/en-US/install.html
 
-2.  该项目的测试使用Node. 确保安装了节点> = 8,因为这是在引入WebAssembly支持时. [安装节点]. 
+2.  该项目的测试使用 Node. 确保安装了 **Node>=8**, 因为这是在引入 WebAssembly支持 时. [isntall node]. 
 
 [install node]: https://nodejs.org/en/
 
-3.  该项目的测试也使用`yarn`,Node的包管理器. 安装`yarn`, 跑: 
+3.  该项目的测试也使用`yarn` - Node的包管理器. 安装`yarn`, 运行: 
 
     ```shell
     npm install -g yarn
     ```
 
-    或遵循其他特定于平台的说明[这里](https://yarnpkg.com/en/docs/install). 
+    或 遵循其他特定于平台的说明[这里](https://yarnpkg.com/en/docs/install). 
 
     一旦`yarn`安装后,在顶级目录中运行它: 
 
