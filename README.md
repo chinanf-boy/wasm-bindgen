@@ -48,7 +48,7 @@
         - [ ] [16. 定制 imports](./guide/src/design/import-customization.zh.md)
         - [ ] [17. Rust类型转换](./guide/src/design/rust-type-conversions.zh.md)
         - [ ] [18. 在`wasm-bindgen`中的类型](./guide/src/design/describe.zh.md)
-    - [ ] [19. 团队](./guide/src/team.zh.md)
+    - [x] [19. 团队](./guide/src/team.zh.md)
 
 
 

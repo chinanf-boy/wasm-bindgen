@@ -1,15 +1,15 @@
 
-# 球队
+# 团队
 
 `wasm-bindgen`跟着[`rustwasm`这里描述了组织的治理][governance]: 
 
 -   所有拉取请求 (包括由团队成员提出的请求) 必须至少由另一个团队成员批准. 
 
--   关于设计,架构,突破性变化,权衡等的更大,更细微的决策是由团队共识做出的. 
+-   关于设计,架构,突破性变化,权衡等的更大,更细微的决策是由 全体团队 做出的. 
 
 [governance]: https://github.com/rustwasm/team/blob/master/GOVERNANCE.md#repositories
 
-## 会员
+## 成员
 
 <style>
 img {
