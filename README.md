@@ -32,7 +32,8 @@
 - [x] [4. 我们还能做什么?](./guide/src/what-else-can-we-do.zh.md)
 - [x] [5. 闭包](./guide/src/closures.zh.md)
 - [x] [6. 功能 参考](./guide/src/feature-reference.zh.md)
-- [ ] [7. CLI 参考](./guide/src/cli-reference.zh.md)
+- [x] [7. CLI 参考](./guide/src/cli-reference.zh.md)
+- [x] [20. 类型 参考](./guide/src/reference.zh.md)
 
 * * *
 

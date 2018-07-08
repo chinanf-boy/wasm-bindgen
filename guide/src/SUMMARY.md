@@ -9,8 +9,10 @@
 -   [刚刚发生了什么?](./what-just-happened.zh.md)
 -   [我们还能做什么?](./what-else-can-we-do.zh.md)
 -   [闭包](./closures.zh.md)
--   [功能参考](./feature-reference.zh.md)
--   [CLI参考](./cli-reference.zh.md)
+-   [功能.参考](./feature-reference.zh.md)
+-   [CLI.参考](./cli-reference.zh.md)
+-   [类型·参考](./reference.zh.md)
+
 
 * * *
 
