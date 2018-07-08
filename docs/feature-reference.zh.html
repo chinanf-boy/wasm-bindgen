@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>功能参考 - The `wasm-bindgen` Guide</title>
+        <title>功能.参考 - The `wasm-bindgen` Guide</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html" class="active"><strong aria-hidden="true">5.</strong> 功能参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">8.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">8.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">8.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">8.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">8.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">8.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">8.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">8.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">8.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">8.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">8.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">8.2.</strong> 团队</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html" class="active"><strong aria-hidden="true">5.</strong> 功能.参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI.参考</a></li><li><a href="reference.zh.html"><strong aria-hidden="true">7.</strong> 类型·参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">9.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">9.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">9.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">9.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">9.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">9.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">9.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">9.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">9.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">9.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">9.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">9.2.</strong> 团队</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -134,25 +134,45 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="feature-reference.zh.html#a功能参考" id="a功能参考"><h1>功能参考</h1></a>
-<p>此部分将尝试作为此项目中实现的各种功能的参考. 这可能不是详尽无遗的[测试]也应该是一个寻找例子的好地方.</p>
-<p>该<code>#[wasm_bindgen]</code>属性可以附加到函数,结构,impls和外部模块. Impls只能包含函数,并且该属性不能附加到impl块中的函数或外部模块中的函数. 任何这些类型都不允许使用生命周期参数或类型参数. 外国模块必须有<code>&quot;C&quot;</code>abi (或没有列出) . 免费功能<code>#[wasm_bindgen]</code>可能没有<code>&quot;C&quot;</code>abi或none列出,也没有必要用<code>#[no_mangle]</code>属性.</p>
-<p>通过函数参数引用的所有结构都应该在宏本身中定义. 参数允许实现<code>WasmBoundary</code>特征,例子是:</p>
+<p>此章节将尝试说明, <code>wasm-bindgen</code>项目中实现的各种功能.
+下面这部分不是详尽无遗的,但<a href="https://github.com/rustwasm/wasm-bindgen/tree/master/tests">tests</a>用例也能成为你一个寻找功能例子的好地方.</p>
+<p>该<code>#[wasm_bindgen]</code>属性可以附加到函数,结构,impls 和外部模块.</p>
+<p>其中:</p>
 <ul>
-<li>整数 (u64 / i64需要<code>BigInt</code>支持)</li>
-<li>花车</li>
-<li>借来的弦 (<code>&amp;str</code>)</li>
-<li>拥有的字符串 (<code>String</code>)</li>
-<li>出口结构 (<code>Foo</code>,注释<code>#[wasm_bindgen]</code>)</li>
-<li>导出类似C的枚举 (<code>Foo</code>,注释<code>#[wasm_bindgen]</code>)</li>
-<li>在带有注释的外部模块中导入的类型<code>#[wasm_bindgen]</code></li>
-<li>借入出口结构 (<code>&amp;Foo</code>要么<code>&amp;mut Bar</code>)</li>
-<li>该<code>JsValue</code>类型和<code>&amp;JsValue</code> (不是可变引用)</li>
-<li>载体和支持的整数类型和的切片<code>JsValue</code>类型.</li>
+<li>Impls 只能包含函数,并且该属性不能附加到 impl 块中的函数 或 外部模块中的函数.</li>
+<li>任何这些类型都不允许使用生命周期参数或类型参数.</li>
+<li>其他语言模块必须有<code>&quot;C&quot;</code>abi (或没有) 列表 .</li>
+<li>带有<code>#[wasm_bindgen]</code>的免费函数可能有或没有 <code>&quot;C&quot;</code>abi 的列表,
+都不必要用<code>#[no_mangle]</code>属性.</li>
 </ul>
-<p>除借用的参考文献外,还可以返回上述所有内容. 通过<code>Vec&lt;JsValue&gt;</code>目前不支持作为函数的参数. 使用填充函数实现字符串,以将数据复制到Rust堆中/从Rust堆中复制数据. 也就是说,从JS传递给Rust的字符串被复制到Rust堆 (使用生成的填充到malloc一些空间) ,然后将被适当地释放.</p>
-<p>拥有的值通过框实现. 当你返回一个<code>Foo</code>它实际上变成了<code>Box&lt;RefCell&lt;Foo&gt;&gt;</code>引擎盖下并返回JS作为指针. 指针是有一个定义的ABI,和<code>RefCell</code>是为了确保JS中的重入和别名的安全性. 一般来说,你不应该看到<code>RefCell</code>正常使用恐慌.</p>
-<p>JS-values-in-Rust是通过索引索引作为JS绑定的一部分生成的表的索引来实现的. 此表通过Rust中指定的所有权以及我们返回的绑定进行管理. 有关这方面的更多信息,请参阅[设计文件].</p>
-<p>所有这些构造目前在JS方面创建相对简单的代码,大多数在Rust与JS中具有1: 1的匹配.</p>
+<p>所有 函数参数引用的结构都应该在宏本身中定义. 参数允许实现<code>WasmBoundary</code>特征,
+例子是:</p>
+<ul>
+<li>整数-Int (u64 / i64需要<code>BigInt</code>支持)</li>
+<li>浮点数-Floats</li>
+<li>借用的字符串<code>&amp;str</code>)</li>
+<li>拥有的字符串 (<code>String</code>)</li>
+<li>export 结构 (<code>Foo</code>,注释<code>#[wasm_bindgen]</code>)</li>
+<li>export 类似 C 的枚举 (<code>Foo</code>,注释<code>#[wasm_bindgen]</code>)</li>
+<li>导入 带有注释的外部模块的类型 要<code>#[wasm_bindgen]</code></li>
+<li>借用 export 结构 (<code>&amp;Foo</code>要么<code>&amp;mut Bar</code>)</li>
+<li>该<code>JsValue</code>类型和<code>&amp;JsValue</code> (不是可变引用)</li>
+<li>Vectors 和 支持的整数类型的切片 和<code>JsValue</code>类型.</li>
+</ul>
+<p>上述所有内容还可以返回,除了借用的引用
+<code>Vec&lt;JsValue&gt;</code>目前不支持作为函数的参数.</p>
+<p>字符串是实现,将数据复制 in/out Rust 堆的垫片函数.
+也就是说,从 JS 传递给 Rust 的字符串 被复制到Rust堆
+(使用 生成的补丁 malloc 一些空间) ,
+然后将被适当地释放.</p>
+<p>拥有的值通过 框 实现. 当你返回一个<code>Foo</code>, 它实际上变成了<code>Box&lt;RefCell&lt;Foo&gt;&gt;</code>,并作为指针返回给 JS .</p>
+<p>指针是有一个定义的 ABI ,和<code>RefCell</code>是为了确保 JS 中的 重导入 和 重命名 的安全性.
+一般来说正常使用.,你不应该看到<code>RefCell</code>恐慌</p>
+<p>JS-values-in-Rust 是 通过 索引 实现的,而索引一个生成表格是实现 JS绑定 的一部分.
+此表格是通过 Rust 中指定的所有权, 以及 我们返回的绑定 进行管理.
+有关这方面的更多信息,请参阅<a href="design.zh.html">design doc</a>.</p>
+<p>目前, 所有这些构造在 JS方面 创建相对简单的代码,
+大多数在 Rust与JS 中具有1: 1的匹配.</p>
 
                     </main>
 

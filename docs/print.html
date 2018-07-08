@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">8.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">8.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">8.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">8.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">8.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">8.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">8.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">8.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">8.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">8.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">8.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">8.2.</strong> 团队</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能.参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI.参考</a></li><li><a href="reference.zh.html"><strong aria-hidden="true">7.</strong> 类型·参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">9.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">9.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">9.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">9.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">9.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">9.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">9.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">9.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">9.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">9.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">9.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">9.2.</strong> 团队</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -206,16 +206,19 @@ $ npm run serve
 <p>如果你打开<a href="https://localhost:8080">本地主机: 8080</a>在浏览器中你应该看到一个<code>Hello, world!</code>对话框弹出!</p>
 <p>如果这一切都有点多,不用担心!您可以[在线执行此代码][hello-online]谢谢<a href="https://webassembly.studio">WebAssembly Studio</a>或者你可以<a href="https://github.com/rustwasm/wasm-bindgen/tree/master/examples/hello_world">跟随GitHub</a>查看所有必需的文件,以及设置它的脚本.</p>
 <a class="header" href="print.html#a刚刚发生了什么" id="a刚刚发生了什么"><h1>刚刚发生了什么?</h1></a>
-<p>唷!这是很多的话,很多事情一直在发生. 发生了两件主要的魔法: <code>#[wasm_bindgen]</code>属性和<code>wasm-bindgen</code>CLI工具.</p>
+<p>唷! 想知道刚刚发生了什么, 很多很多 - 两个大魔法: <code>#[wasm_bindgen]</code>属性和<code>wasm-bindgen</code>CLI工具.</p>
 <p><strong>该<code>#[wasm_bindgen]</code>属性</strong></p>
-<p>此属性,从中导出<code>wasm-bindgen</code>crate,是将Rust函数暴露给JS的入口点. 这是一个程序宏 (因此需要每晚Rust工具链) ,它将在Rust中生成适当的填充程序,以便从您的类型签名转换为JS可以与之交互的签名. 最后,该属性还将一些信息序列化为输出工件<code>wasm-bindgen</code>-the-tool在解析后会丢弃.</p>
-<p>下面对属性的各个部分进行了更全面的解释,但现在可以说你可以将它附加到自由函数,结构,impl块以用于那些结构和<code>extern { ... }</code>块. 标记为的函数不支持一些Rust特性,如泛型,生命周期参数等<code>#[wasm_bindgen]</code>马上.</p>
+<p>此属性,从中 <code>wasm-bindgen</code>crate 导出,是将 Rust函数 暴露给 JS 的主文件. 这是一个程序宏 (因此需要最新的 Rust工具链) ,它将在 Rust 中生成适当的补丁程序,以便从您的 类型 转换为 JS 可以与之交互的接口. 最后,在解析后, 该属性还将一些信息序列化为<code>wasm-bindgen</code>会丢弃的输出.</p>
+<p>下面对属性的各个部分进行了更全面的解释,但现在使用它在 自由函数,结构,impl 块 以用于 那些结构和<code>extern { ... }</code>块. 现在还不支持一些 Rust 特性,如 泛型,生命周期 等.</p>
 <p><strong>该<code>wasm-bindgen</code>CLI工具</strong></p>
-<p>这里发生的事情的下半部分全都在<code>wasm-bindgen</code>工具. 这个工具打开了生成的rustc模块,并找到了传递给它的内容的编码描述<code>#[wasm_bindgen]</code>属性. 你可以把它想象成<code>#[wasm_bindgen]</code>属性创建了输出模块的特殊部分<code>wasm-bindgen</code>条带和流程.</p>
-<p>这个信息给了<code>wasm-bindgen</code>所有它需要知道生成我们然后导入的JS文件. JS文件包装实例化底层的wasm模块 (也就是调用<code>WebAssembly.instantiate</code>) 然后为其中的类/函数提供包装器.</p>
+<p>下半部分,都是<code>wasm-bindgen</code>工具的内容. 这个工具打开了 rustc 生成的模块,并找到了 它的内容编码的<code>#[wasm_bindgen]</code>属性. 你可以把它想象成<code>#[wasm_bindgen]</code>属性,创建了输出模块的特殊辨识,给<code>wasm-bindgen</code>启动流程.</p>
+<p>这个信息给了<code>wasm-bindgen</code>, 所有它需要知道导入的JS文件. JS文件 包裹了 底层实例化的 wasm 模块 (也就是调用<code>WebAssembly.instantiate</code>) 然后为其中的 类/函数 提供包装器.</p>
 <a class="header" href="print.html#a我们还能做什么" id="a我们还能做什么"><h1>我们还能做什么?</h1></a>
-<p>多得多!这里介绍了您可以在此项目中使用的各种功能. 你也可以<a href="https://webassembly.studio/?f=t61j18noqz">在线探索此代码</a>:</p>
-<pre><code class="language-rust ignore">// src/lib.rs
+<p>多得多! 这里介绍了您可以在此项目中使用的各种功能. 你也可以<a href="https://webassembly.studio/?f=t61j18noqz">在线探索此代码</a>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// src/lib.rs
 #![feature(proc_macro, wasm_custom_section, wasm_import_module)]
 
 extern crate wasm_bindgen;
@@ -295,9 +298,216 @@ impl Bar {
         }
     }
 }
+#}</code></pre></pre>
+<p>此宏调用,生成的JS绑定<a href="https://gist.github.com/alexcrichton/3d85c505e785fb8ff32e2c1cf9618367">看起来像这样 <code>翻墙</code></a>. 你可以像这样查看它们:</p>
+<p><details></p>
+<p><summary> 生成的JS绑定 </summary></p>
+<pre><code class="language-js">/* tslint:disable */
+import * as wasm from './js_hello_world_wasm'; // imports from wasm file
+
+import {
+    bar_on_reset
+} from './index';
+
+import {
+    Awesome
+} from './index';
+
+let cachedEncoder = null;
+
+function textEncoder() {
+    if (cachedEncoder)
+        return cachedEncoder;
+    cachedEncoder = new TextEncoder('utf-8');
+    return cachedEncoder;
+}
+
+let cachedUint8Memory = null;
+
+function getUint8Memory() {
+    if (cachedUint8Memory === null ||
+        cachedUint8Memory.buffer !== wasm.memory.buffer)
+        cachedUint8Memory = new Uint8Array(wasm.memory.buffer);
+    return cachedUint8Memory;
+}
+
+function passStringToWasm(arg) {
+    if (typeof(arg) !== 'string')
+        throw new Error('expected a string argument');
+    const buf = textEncoder().encode(arg);
+    const len = buf.length;
+    const ptr = wasm.__wbindgen_malloc(len);
+    getUint8Memory().set(buf, ptr);
+    return [ptr, len];
+}
+
+let slab = [];
+let slab_next = 0;
+
+function addHeapObject(obj) {
+    if (slab_next == slab.length)
+        slab.push(slab.length + 1);
+    const idx = slab_next;
+    const next = slab[idx];
+    slab_next = next;
+    slab[idx] = {
+        obj,
+        cnt: 1
+    };
+    return idx &lt;&lt; 1;
+}
+
+let cachedDecoder = null;
+
+function textDecoder() {
+    if (cachedDecoder)
+        return cachedDecoder;
+    cachedDecoder = new TextDecoder('utf-8');
+    return cachedDecoder;
+}
+
+function getStringFromWasm(ptr, len) {
+    const mem = getUint8Memory();
+    const slice = mem.slice(ptr, ptr + len);
+    const ret = textDecoder().decode(slice);
+    return ret;
+}
+
+let stack = [];
+
+function getObject(idx) {
+    if ((idx &amp; 1) === 1) {
+        return stack[idx &gt;&gt; 1];
+    } else {
+        const val = slab[idx &gt;&gt; 1];
+
+        return val.obj;
+
+    }
+}
+
+export function __wbg_f_bar_on_reset(ptr0, len0, arg1) {
+    bar_on_reset(getStringFromWasm(ptr0, len0), getObject(arg1))
+}
+
+export function __wbg_s_Awesome_new() {
+    return addHeapObject(new Awesome());
+}
+
+export function __wbg_s_Awesome_get_internal(arg0) {
+    return Awesome.prototype.get_internal.call(getObject(arg0));
+}
+
+export function concat(arg0, arg1) {
+    const [ptr0, len0] = passStringToWasm(arg0);
+    const [ptr1, len1] = passStringToWasm(arg1);
+    try {
+        const ret = wasm.concat(ptr0, len0, ptr1, len1);
+
+        const ptr = wasm.__wbindgen_boxed_str_ptr(ret);
+        const len = wasm.__wbindgen_boxed_str_len(ret);
+        const realRet = getStringFromWasm(ptr, len);
+        wasm.__wbindgen_boxed_str_free(ret);
+        return realRet;
+
+    } finally {
+
+        wasm.__wbindgen_free(ptr0, len0);
+
+        wasm.__wbindgen_free(ptr1, len1);
+
+    }
+}
+
+export class Foo {
+    constructor(ptr) {
+        this.ptr = ptr;
+    }
+
+    free() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+        wasm.__wbg_foo_free(ptr);
+    }
+    static new() {
+        const ret = wasm.foo_new();
+        return new Foo(ret);
+
+    }
+    add(arg0) {
+        const ret = wasm.foo_add(this.ptr, arg0);
+        return ret;
+    }
+    add_other(arg0) {
+        const ret = wasm.foo_add_other(this.ptr, arg0.ptr);
+        return ret;
+    }
+    consume_other(arg0) {
+        const ptr0 = arg0.ptr;
+        arg0.ptr = 0;
+        const ret = wasm.foo_consume_other(this.ptr, ptr0);
+        return ret;
+    }
+}
+
+export class Bar {
+    constructor(ptr) {
+        this.ptr = ptr;
+    }
+
+    free() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+        wasm.__wbg_bar_free(ptr);
+    }
+    static from_str(arg0, arg1) {
+        const [ptr0, len0] = passStringToWasm(arg0);
+        const idx1 = addHeapObject(arg1);
+        try {
+            const ret = wasm.bar_from_str(ptr0, len0, idx1);
+            return new Bar(ret);
+
+        } finally {
+
+            wasm.__wbindgen_free(ptr0, len0);
+
+        }
+    }
+    reset(arg0) {
+        const [ptr0, len0] = passStringToWasm(arg0);
+        try {
+            const ret = wasm.bar_reset(this.ptr, ptr0, len0);
+            return ret;
+        } finally {
+
+            wasm.__wbindgen_free(ptr0, len0);
+
+        }
+    }
+}
+
+function dropRef(idx) {
+    let obj = slab[idx &gt;&gt; 1];
+    obj.cnt -= 1;
+    if (obj.cnt &gt; 0)
+        return;
+    // If we hit 0 then free up our space in the slab
+    slab[idx &gt;&gt; 1] = slab_next;
+    slab_next = idx &gt;&gt; 1;
+}
+
+export const __wbindgen_object_drop_ref = dropRef;
+
+export const __wbindgen_throw =
+    function(ptr, len) {
+        throw new Error(getStringFromWasm(ptr, len));
+    };
 </code></pre>
-<p>为此宏调用生成的JS绑定<a href="https://gist.github.com/alexcrichton/3d85c505e785fb8ff32e2c1cf9618367">看起来像这样</a>. 你可以像这样在行动中查看它们:</p>
-<p>和我们相应的<code>index.js</code>:</p>
+<p></details></p>
+<ul>
+<li></li>
+</ul>
+<p>和我们使用它,在<code>index.js</code>:</p>
 <pre><code class="language-js">import { Foo, Bar, concat } from &quot;./js_hello_world&quot;;
 import { booted } from &quot;./js_hello_world_wasm&quot;;
 
@@ -351,8 +561,8 @@ export class Awesome {
 
 booted.then(main);
 </code></pre>
-<a class="header" href="print.html#a关闭" id="a关闭"><h1>关闭</h1></a>
-<p>该<code>#[wasm_bindgen]</code>attribute支持将一些Rust闭包传递给JS. 你可以做的例子是:</p>
+<a class="header" href="print.html#a闭包" id="a闭包"><h1>闭包</h1></a>
+<p>该<code>#[wasm_bindgen]</code>属性支持将一些 Rust闭包 传递给JS. 你可以做的例子是:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -361,8 +571,8 @@ extern {
     fn foo(a: &amp;Fn()); // could also be `&amp;mut FnMut()`
 }
 #}</code></pre></pre>
-<p>这是一个功能<code>foo</code>从JS导入,其中第一个参数是a<em>堆栈关闭</em>. 您可以使用a调用此函数<code>&amp;Fn()</code>参数和JS将获得JS函数. 当. . . 的时候<code>foo</code>但是,函数返回时,JS函数将失效,并且将来使用它将引发异常.</p>
-<p>闭包还支持参数和返回值,如导出,例如:</p>
+<p>这是一个 从 JS 导入<code>foo</code>函数,其中第一个参数是 <code>a</code>: <em>堆栈闭包</em>. 您可以调用此函数带有参数<code>a</code>:<code>&amp;Fn()</code> 在正常的 html 与 JS 中获得这个函数. 然而,当·<code>foo</code>函数使用时,JS函数将失效,并且使用它将引发异常.</p>
+<p>另外, 闭包还支持 参数 和 返回值 的导出,例如:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -373,7 +583,7 @@ extern {
     fn bar(a: &amp;Fn(u32, String) -&gt; Foo);
 }
 #}</code></pre></pre>
-<p>有时,不希望这些闭包的堆栈行为. 例如,您希望在JS中通过事件循环的下一轮安排闭包运行<code>setTimeout</code>. 为此,您希望导入的函数返回,但JS闭包仍然需要有效!</p>
+<p>有时,不希望这些闭包的堆栈行为影响. 例如,您希望在 JS 中通过下一次事件循环中运行<code>setTimeout</code>的闭包. 为此,您希望导入的函数返回,和 JS闭包 需要有效!</p>
 <p>要支持此用例,您可以执行以下操作:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -385,8 +595,8 @@ extern {
     fn baz(a: &amp;Closure&lt;Fn()&gt;);
 }
 #}</code></pre></pre>
-<p>该<code>Closure</code>类型定义在<code>wasm_bindgen</code>箱子并代表&quot;长寿&quot;封闭. JS封闭传递给了<code>baz</code>之后仍然有效<code>baz</code>返回,JS闭包的有效性与生命周期有关<code>Closure</code>在Rust. 一旦<code>Closure</code>被删除它将释放其内部内存并使相应的JS函数无效.</p>
-<p>像堆栈封闭一样<code>Closure</code>也支持<code>FnMut</code>:</p>
+<p>该<code>Closure</code>类型定义在<code>wasm_bindgen</code>箱子和代表&quot;长寿&quot;的闭包. JS闭包传递给了<code>baz</code>之后, <code>baz</code>返回仍然有效,在 Rust 中 JS闭包 的有效性 与 <code>Closure</code>的生命周期 有关. 一旦<code>Closure</code>被删除, 它将释放其内部内存, 并使相应的 JS函数 无效.</p>
+<p>像堆栈闭包一样<code>Closure</code>也支持<code>FnMut</code>:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -397,67 +607,107 @@ extern {
     fn another(a: &amp;Closure&lt;FnMut() -&gt; u32&gt;);
 }
 #}</code></pre></pre>
-<p>这时你不能<a href="https://github.com/rustwasm/wasm-bindgen/issues/103">将一个JS闭包传递给Rust</a>,在有限的情况下,你只能将一个Rust闭包传递给JS.</p>
+<p>这时你不能<a href="https://github.com/rustwasm/wasm-bindgen/issues/103">将一个 JS闭包 传递给Rust</a>,在有限的情况下,你只能将一个 Rust闭包 传递给JS.</p>
 <a class="header" href="print.html#a功能参考" id="a功能参考"><h1>功能参考</h1></a>
-<p>此部分将尝试作为此项目中实现的各种功能的参考. 这可能不是详尽无遗的[测试]也应该是一个寻找例子的好地方.</p>
-<p>该<code>#[wasm_bindgen]</code>属性可以附加到函数,结构,impls和外部模块. Impls只能包含函数,并且该属性不能附加到impl块中的函数或外部模块中的函数. 任何这些类型都不允许使用生命周期参数或类型参数. 外国模块必须有<code>&quot;C&quot;</code>abi (或没有列出) . 免费功能<code>#[wasm_bindgen]</code>可能没有<code>&quot;C&quot;</code>abi或none列出,也没有必要用<code>#[no_mangle]</code>属性.</p>
-<p>通过函数参数引用的所有结构都应该在宏本身中定义. 参数允许实现<code>WasmBoundary</code>特征,例子是:</p>
+<p>此章节将尝试说明, <code>wasm-bindgen</code>项目中实现的各种功能.
+下面这部分不是详尽无遗的,但<a href="https://github.com/rustwasm/wasm-bindgen/tree/master/tests">tests</a>用例也能成为你一个寻找功能例子的好地方.</p>
+<p>该<code>#[wasm_bindgen]</code>属性可以附加到函数,结构,impls 和外部模块.</p>
+<p>其中:</p>
 <ul>
-<li>整数 (u64 / i64需要<code>BigInt</code>支持)</li>
-<li>花车</li>
-<li>借来的弦 (<code>&amp;str</code>)</li>
+<li>Impls 只能包含函数,并且该属性不能附加到 impl 块中的函数 或 外部模块中的函数.</li>
+<li>任何这些类型都不允许使用生命周期参数或类型参数.</li>
+<li>其他语言模块必须有<code>&quot;C&quot;</code>abi (或没有) 列表 .</li>
+<li>带有<code>#[wasm_bindgen]</code>的免费函数可能有或没有 <code>&quot;C&quot;</code>abi 的列表,
+都不必要用<code>#[no_mangle]</code>属性.</li>
+</ul>
+<p>所有 函数参数引用的结构都应该在宏本身中定义. 参数允许实现<code>WasmBoundary</code>特征,
+例子是:</p>
+<ul>
+<li>整数-Int (u64 / i64需要<code>BigInt</code>支持)</li>
+<li>浮点数-Floats</li>
+<li>借用的字符串<code>&amp;str</code>)</li>
 <li>拥有的字符串 (<code>String</code>)</li>
-<li>出口结构 (<code>Foo</code>,注释<code>#[wasm_bindgen]</code>)</li>
-<li>导出类似C的枚举 (<code>Foo</code>,注释<code>#[wasm_bindgen]</code>)</li>
-<li>在带有注释的外部模块中导入的类型<code>#[wasm_bindgen]</code></li>
-<li>借入出口结构 (<code>&amp;Foo</code>要么<code>&amp;mut Bar</code>)</li>
+<li>export 结构 (<code>Foo</code>,注释<code>#[wasm_bindgen]</code>)</li>
+<li>export 类似 C 的枚举 (<code>Foo</code>,注释<code>#[wasm_bindgen]</code>)</li>
+<li>导入 带有注释的外部模块的类型 要<code>#[wasm_bindgen]</code></li>
+<li>借用 export 结构 (<code>&amp;Foo</code>要么<code>&amp;mut Bar</code>)</li>
 <li>该<code>JsValue</code>类型和<code>&amp;JsValue</code> (不是可变引用)</li>
-<li>载体和支持的整数类型和的切片<code>JsValue</code>类型.</li>
+<li>Vectors 和 支持的整数类型的切片 和<code>JsValue</code>类型.</li>
 </ul>
-<p>除借用的参考文献外,还可以返回上述所有内容. 通过<code>Vec&lt;JsValue&gt;</code>目前不支持作为函数的参数. 使用填充函数实现字符串,以将数据复制到Rust堆中/从Rust堆中复制数据. 也就是说,从JS传递给Rust的字符串被复制到Rust堆 (使用生成的填充到malloc一些空间) ,然后将被适当地释放.</p>
-<p>拥有的值通过框实现. 当你返回一个<code>Foo</code>它实际上变成了<code>Box&lt;RefCell&lt;Foo&gt;&gt;</code>引擎盖下并返回JS作为指针. 指针是有一个定义的ABI,和<code>RefCell</code>是为了确保JS中的重入和别名的安全性. 一般来说,你不应该看到<code>RefCell</code>正常使用恐慌.</p>
-<p>JS-values-in-Rust是通过索引索引作为JS绑定的一部分生成的表的索引来实现的. 此表通过Rust中指定的所有权以及我们返回的绑定进行管理. 有关这方面的更多信息,请参阅[设计文件].</p>
-<p>所有这些构造目前在JS方面创建相对简单的代码,大多数在Rust与JS中具有1: 1的匹配.</p>
+<p>上述所有内容还可以返回,除了借用的引用
+<code>Vec&lt;JsValue&gt;</code>目前不支持作为函数的参数.</p>
+<p>字符串是实现,将数据复制 in/out Rust 堆的垫片函数.
+也就是说,从 JS 传递给 Rust 的字符串 被复制到Rust堆
+(使用 生成的补丁 malloc 一些空间) ,
+然后将被适当地释放.</p>
+<p>拥有的值通过 框 实现. 当你返回一个<code>Foo</code>, 它实际上变成了<code>Box&lt;RefCell&lt;Foo&gt;&gt;</code>,并作为指针返回给 JS .</p>
+<p>指针是有一个定义的 ABI ,和<code>RefCell</code>是为了确保 JS 中的 重导入 和 重命名 的安全性.
+一般来说正常使用.,你不应该看到<code>RefCell</code>恐慌</p>
+<p>JS-values-in-Rust 是 通过 索引 实现的,而索引一个生成表格是实现 JS绑定 的一部分.
+此表格是通过 Rust 中指定的所有权, 以及 我们返回的绑定 进行管理.
+有关这方面的更多信息,请参阅<a href="design.zh.html">design doc</a>.</p>
+<p>目前, 所有这些构造在 JS方面 创建相对简单的代码,
+大多数在 Rust与JS 中具有1: 1的匹配.</p>
 <a class="header" href="print.html#cli参考" id="cli参考"><h1>CLI参考</h1></a>
-<p>该<code>wasm-bindgen</code>工具有许多选项可用于调整生成的JS. 默认情况下,生成的JS使用ES模块,并且与Node和浏览器兼容 (但可能需要两个用例的捆绑器) .</p>
-<p>可以通过以下方式了解CLI工具的支持标志<code>wasm-bindgen --help</code>,但一些值得注意的选择是:</p>
+<p>该<code>wasm-bindgen</code>工具有许多选项可用于调整生成的JS. 默认情况下,生成的JS 使用 ES模块,并且与 Node 和 浏览器兼容 (但可能需要两个用例的捆绑器) .</p>
+<p>可以通过以下方式了解更多<code>wasm-bindgen --help</code>, 但一些值得注意的选择是:</p>
 <ul>
 <li>
-<p><code>--nodejs</code>: 这个标志将为Node而不是浏览器定制输出,允许本机使用<code>require</code>生成的JS和内部使用<code>require</code>而不是ES模块. 使用此标志时,不需要进一步后处理 (也称为捆绑器) 来使用wasm.</p>
+<p><code>--nodejs</code>: 这个标志将为输出 Node 而不是 浏览器 ,允许本机使用<code>require</code>生成的JS 和
+内部使用<code>require</code>而不是 ES模块. 使用此标志时,不需要进一步后处理 (也称为捆绑器) 来使用 wasm.</p>
 </li>
 <li>
-<p><code>--browser</code>: 此标志将专门为浏览器定制输出,使其与Node不兼容. 这基本上会使生成的JS稍微小一些,因为不需要对Node进行运行时检查.</p>
+<p><code>--browser</code>: 此标志将专门输出为 浏览器,使其与 Node 不兼容. 这基本上会使生成的JS稍微小一些,因为不需要对 Node 进行运行时检查.</p>
 </li>
 <li>
-<p><code>--no-modules</code>: 默认输出<code>wasm-bindgen</code>使用ES模块,但此选项表示不应使用ES模块,并且应为Web浏览器定制输出. 在这种模式下<code>window.wasm_bindgen</code>将是一个函数,它接受wasm文件的路径来获取和实例化. 之后,可以通过以下方式从wasm导出函数<code>window.wasm_bindgen.foo</code>. 注意名称<code>wasm_bindgen</code>可配置<code>--no-modules-global FOO</code>旗.</p>
+<p><code>--no-modules</code>: <code>wasm-bindgen</code>的默认输出是ES模块 ,但此选项表示 不应使用 ES模块,并且应为 Web浏览器定制输出. 在这种模式下<code>window.wasm_bindgen</code>将是一个函数,它接受 wasm文件 的 路径 来获取和实例化. 之后,可以通过以下方式从 wasm 导出函数 - <code>window.wasm_bindgen.foo</code>. 注意名称<code>wasm_bindgen</code>可配置<code>--no-modules-global FOO</code>选项.</p>
 </li>
 <li>
-<p><code>--no-typescript</code>: 默认情况下<code>*.d.ts</code>为生成的JS文件生成文件,但此标志将禁用生成此TypeScript文件.</p>
+<p><code>--no-typescript</code>: 默认情况下<code>*.d.ts</code>生成,但此标志将禁用生成此TypeScript文件.</p>
 </li>
 <li>
-<p><code>--debug</code>: 在&quot;调试模式&quot;中生成更多JS和wasm以帮助捕获程序员错误,但此输出不打算发送到生产</p>
+<p><code>--debug</code>: 在&quot;调试模式&quot;中生成更多 JS和wasm 以帮助捕获程序员错误,但生成的文件时不打算用于生产环境</p>
 </li>
 </ul>
-<a class="header" href="print.html#a有助于wasm-bindgen" id="a有助于wasm-bindgen"><h1>有助于<code>wasm-bindgen</code></h1></a>
-<p>本节包含有关如何启动和运行此项目以进行开发的说明.</p>
+<a class="header" href="print.html#a参考" id="a参考"><h1>参考</h1></a>
+<p>下表概述了<code>wasm-bindgen</code>可以在 wasm ABI 边界上 <code>发送/接收</code> 的所有类型.</p>
+<table><thead><tr><th align="center">                                                                                  类型                                                                                  </th><th align="center"> <code>T</code>参数 </th><th align="center"> <code>&amp;T</code>参数 </th><th align="center"> <code>&amp;mut T</code>参数 </th><th align="center"> <code>T</code>返回值 </th></tr></thead><tbody>
+<tr><td align="center">                                                                                 <code>str</code>                                                                                </td><td align="center">   No  </td><td align="center">    Yes   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                                <code>char</code>                                                                                </td><td align="center">   Yes   </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                                <code>bool</code>                                                                                </td><td align="center">   Yes   </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                               <code>JsValue</code>                                                                              </td><td align="center">   Yes   </td><td align="center">    Yes   </td><td align="center">      Yes     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                           <code>Box&lt;[JsValue]&gt;</code>                                                                           </td><td align="center">   Yes   </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                              <code>*const T</code>                                                                              </td><td align="center">   Yes   </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                               <code>*mut T</code>                                                                               </td><td align="center">   Yes   </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                           <code>u8</code> <code>i8</code> <code>u16</code> <code>i16</code> <code>u64</code> <code>i64</code> <code>isize</code> <code>size</code>                                                           </td><td align="center">   Yes   </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                        <code>u32</code> <code>i32</code> <code>f32</code> <code>f64</code>                                                                       </td><td align="center">   Yes   </td><td align="center">    Yes   </td><td align="center">      Yes     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                <code>Box&lt;[u8]&gt;</code>  <code>Box&lt;[i8]&gt;</code> <code>Box&lt;[u16]&gt;</code> <code>Box&lt;[i16]&gt;</code> <code>Box&lt;[u32]&gt;</code> <code>Box&lt;[i32]&gt;</code> <code>Box&lt;[u64]&gt;</code> <code>Box&lt;[i64]&gt;</code>                                </td><td align="center">   Yes   </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                       <code>Box&lt;[f32]&gt;</code> <code>Box&lt;[f64]&gt;</code>                                                                      </td><td align="center">   Yes   </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                     <code>[u8]</code> <code>[i8]</code> <code>[u16]</code> <code>[i16]</code> <code>[u32]</code> <code>[i32]</code> <code>[u64]</code> <code>[i64]</code>                                                    </td><td align="center">   No  </td><td align="center">    Yes   </td><td align="center">      Yes     </td><td align="center">   No   </td></tr>
+<tr><td align="center"> <code>&amp;[u8]</code> <code>&amp;mut[u8]</code> <code>&amp;[i8]</code>  <code>&amp;mut[i8]</code> <code>&amp;[u16]</code> <code>&amp;mut[u16]</code> <code>&amp;[i16]</code> <code>&amp;mut[i16]</code> <code>&amp;[u32]</code> <code>&amp;mut[u32]</code> <code>&amp;[i32]</code> <code>&amp;mut[i32]</code> <code>&amp;[u64]</code> <code>&amp;mut[u64]</code> <code>&amp;[i64]</code> <code>&amp;mut[i64]</code> </td><td align="center">   No  </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+<tr><td align="center">                                                                            <code>[f32]</code> <code>[f64]</code>                                                                           </td><td align="center">   No  </td><td align="center">    Yes   </td><td align="center">      Yes     </td><td align="center">   No   </td></tr>
+<tr><td align="center">                                                               <code>&amp;[f32]</code> <code>&amp;mut[f32]</code> <code>&amp;[f64]</code> <code>&amp;mut[f64]</code>                                                              </td><td align="center">   No  </td><td align="center">   No   </td><td align="center">     No     </td><td align="center">    Yes   </td></tr>
+</tbody></table>
+<a class="header" href="print.html#a帮助wasm-bindgen" id="a帮助wasm-bindgen"><h1>帮助<code>wasm-bindgen</code></h1></a>
+<p>本节包含有关如何 启动和运行 此项目以进行开发的说明.</p>
 <a class="header" href="print.html#a先决条件" id="a先决条件"><h2>先决条件</h2></a>
 <ol>
 <li>
-<p>Rust Nightly. [安装Rust]. 安装Rust后,运行</p>
+<p>Rust Nightly. <a href="https://www.rust-lang.org/en-US/install.html">install Rust</a>. 安装 Rust 后,运行</p>
 <pre><code class="language-shell">rustup default nightly
 rustup target add wasm32-unknown-unknown
 </code></pre>
 </li>
 </ol>
 <ol start="2">
-<li>该项目的测试使用Node. 确保安装了节点&gt; = 8,因为这是在引入WebAssembly支持时. [安装节点].</li>
+<li>该项目的测试使用 Node. 确保安装了 <strong>Node&gt;=8</strong>, 因为这是在引入 WebAssembly支持 时. [isntall node].</li>
 </ol>
 <ol start="3">
 <li>
-<p>该项目的测试也使用<code>yarn</code>,Node的包管理器. 安装<code>yarn</code>, 跑:</p>
+<p>该项目的测试也使用<code>yarn</code> - Node的包管理器. 安装<code>yarn</code>, 运行:</p>
 <pre><code class="language-shell">npm install -g yarn
 </code></pre>
-<p>或遵循其他特定于平台的说明<a href="https://yarnpkg.com/en/docs/install">这里</a>.</p>
+<p>或 遵循其他特定于平台的说明<a href="https://yarnpkg.com/en/docs/install">这里</a>.</p>
 <p>一旦<code>yarn</code>安装后,在顶级目录中运行它:</p>
 <pre><code class="language-shell">yarn
 </code></pre>
@@ -467,16 +717,16 @@ rustup target add wasm32-unknown-unknown
 <p>最后,您可以运行测试<code>cargo</code>:</p>
 <pre><code class="language-shell">cargo test
 </code></pre>
-<a class="header" href="print.html#a设计wasm-bindgen" id="a设计wasm-bindgen"><h1>设计<code>wasm-bindgen</code></h1></a>
-<p>本节旨在深入探讨如何<code>wasm-bindgen</code>今天内部工作,专门为Rust. 如果您将来阅读这篇文章很远,它可能不再是最新的,但随时可以打开一个问题,我们可以尝试回答问题和/或更新这个问题!</p>
+<a class="header" href="print.html#wasm-bindgen的设计" id="wasm-bindgen的设计"><h1><code>wasm-bindgen</code>的设计</h1></a>
+<p>本节旨在: 深入探讨<code>wasm-bindgen</code>如何工作, 通过 Rust语言. 如果您很久前阅读这篇文章,它可能不再是最新的,但随时可以打开一个问题,我们可以尝试回答问题和/或更新这个问题!</p>
 <a class="header" href="print.html#a基础-es模块" id="a基础-es模块"><h2>基础: ES模块</h2></a>
-<p>首先要了解的事情<code>wasm-bindgen</code>它是从根本上建立在ES模块的基础上的. 换句话说,这个工具采取了自以为是的文件的立场<em>应该被视为ES模块</em>. 这意味着你可以<code>import</code>从一个wasm文件,使用它<code>export</code>来自普通JS文件的-ed功能等.</p>
-<p>现在不幸的是,在撰写本文时,wasm interop的界面并不是很丰富. Wasm模块只能调用函数或导出专门处理的函数<code>i32</code>,<code>i64</code>,<code>f32</code>,和<code>f64</code>. 坏消息!</p>
-<p>这就是这个项目的用武之地是用类,JS对象,Rust结构,字符串等更丰富的类型来增强wasm模块的&quot;ABI&quot;. 但请记住,一切都基于ES模块!<code>wasm-bindgen</code>这意味着编译器实际上正在生成一个&quot;破坏&quot;的各种各样的wasm文件. <code>wasm-bindgen</code>例如,rustc发出的wasm文件没有我们想要的接口. 相反,它需要工具来后处理文件,生成一个<code>foo.js</code>和<code>foo_bg.wasm</code>文件. 该<code>foo.js</code>file是用JS表示的所需接口 (类,类型,字符串等) 和<code>foo_bg.wasm</code>模块简单地用作实现细节 (它是从原始版本轻微修改的<code>foo.wasm</code>文件) .</p>
-<p>随着WebAssembly中的更多功能随着时间的推移而稳定 (如主机绑定) ,JS文件有望变得越来越小. 它不太可能永远消失,但是<code>wasm-bindgen</code>旨在尽可能地遵循WebAssembly规范和建议以优化JS / Rust.</p>
-<a class="header" href="print.html#a基础2-在rust中不引人注目" id="a基础2-在rust中不引人注目"><h2>基础#2: 在Rust中不引人注目</h2></a>
-<p>在事情上更生锈的一面<code>wasm-bindgen</code>箱子的设计理想情况下尽可能减少对Rust箱子的影响. 理想情况下<code>#[wasm_bindgen]</code>属性在关键位置注释,否则您将参加比赛. 该属性致力于既不发明新语法又适用于现有的习语.</p>
-<p>例如,库可能会暴露普通Rust中的一个函数,如下所示:</p>
+<p>首先要了解的事情是,<code>wasm-bindgen</code> 建立在ES模块的基础上的. 换句话说,这个工具采取了 自定义的文件 <em>被视为ES模块</em>. 这意味着你可以<code>import</code>一个wasm文件 ,使用<code>export</code>得到一个普通 JS文件 的函数等.</p>
+<p>现在不幸的是,在撰写本文时, <strong>wasm interop</strong> 的接口并不是很丰富. Wasm模块只能调用函数 或 导出专门处理<code>i32</code>,<code>i64</code>,<code>f32</code>,和<code>f64</code>之类的参数. 这是个坏消息!</p>
+<p>但这也是这个项目的用武之地, 通过使用 类,JS对象,Rust结构,字符串 等更丰富的类型来增强 wasm模块 的 &quot;ABI&quot;. 但请记住,一切都基于 ES模块! 使用<code>wasm-bindgen</code>意味着编译器实际上正在生成一个&quot;已经被破坏&quot;的各种各样的wasm 文件. 例如,rustc 发出的 wasm文件 没有我们想要的接口. 相反,它需要 wasm-bindgen 处理文件,生成一个<code>foo.js</code>和<code>foo_bg.wasm</code>文件. 该<code>foo.js</code>是用 JS 表示的所需接口 (类,类型,字符串等) 和<code>foo_bg.wasm</code>模块 简单地用作实现细节 (它是从原始版本 <code>foo.wasm</code> 轻微修改的文件) .</p>
+<p>随着 WebAssembly 中的 更多功能 随着时间的推移而稳定 (如主机绑定) , JS文件 有望变得越来越小. 它不太可能永远消失,但是<code>wasm-bindgen</code>旨在尽可能地遵循 WebAssembly规范和建议 来优化 JS/Rust.</p>
+<a class="header" href="print.html#a基础2-在-rust-中不引人注目" id="a基础2-在-rust-中不引人注目"><h2>基础#2: 在 Rust 中不引人注目</h2></a>
+<p>在 rsut编程方面上, <code>wasm-bindgen</code>箱子的设计理想是尽可能减少对 在 Rust 编码的影响. 理想情况下<code>#[wasm_bindgen]</code>属性在关键位置 <code>#注释</code>,不然您会看不上这个项目. 该属性致力于既不发明新语法又适用于现有的习语.</p>
+<p>例如,想要暴露普通 Rust 中的一个函数,如下所示:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -484,7 +734,7 @@ pub fn greet(name: &amp;str) -&gt; String {
     // ...
 }
 #}</code></pre></pre>
-<p>与<code>#[wasm_bindgen]</code>将它导出到JS所需要做的就是:</p>
+<p><code>#[wasm_bindgen]</code>将它 导出到JS 所需要做的就是:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -493,7 +743,7 @@ pub fn greet(name: &amp;str) -&gt; String {
     // ...
 }
 #}</code></pre></pre>
-<p>此外,这里的设计对Rust的干预最少,这样我们就可以轻松利用即将到来的优势<a href="https://github.com/WebAssembly/host-bindings">主机绑定</a>提案. 理想情况下,您只需升级<code>wasm-bindgen</code>-the-crate以及您的工具链,您可以立即获得对主机绑定的原始访问权限! (虽然这仍然有点远......)</p>
+<p>此外,这里的设计对 Rust 的干预最少,这样我们就可以轻松利用即将到来的优势<a href="https://github.com/WebAssembly/host-bindings">主机绑定</a>提案. 理想情况下,您只需升级<code>wasm-bindgen</code>以及您的工具链,您可以立即获得对主机绑定的原始访问权限! (虽然这仍然有点远......)</p>
 <a class="header" href="print.html#polyfill-forjs-objects-in-wasm" id="polyfill-forjs-objects-in-wasm"><h1>Polyfill for&quot;JS objects in wasm&quot;</h1></a>
 <p>其中一个主要目标是<code>wasm-bindgen</code>是允许在wasm中使用和传递JS对象,但今天不允许这样做!虽然确实如此,但这就是polyfill的用武之地.</p>
 <p>这里的问题是我们如何将JS对象鞋拔成一个<code>u32</code>对于使用ism. 此方法的当前策略是在生成的中维护两个模块局部变量<code>foo.js</code>file: 堆栈和堆.</p>
@@ -1340,17 +1590,17 @@ pub extern fn __wbindgen_describe_greet() {
 </code></pre>
 <p>或者换句话说,它会生成调用<code>describe</code>功能. 这样做了<code>__wbindgen_describe_greet</code>shim是导入/导出的类型布局的编程描述. 然后执行这些操作<code>wasm-bindgen</code>跑!这些执行依赖于调用的导入<code>__wbindgen_describe</code>通过一个<code>u32</code>到主机,当多次调用时给出一个<code>Vec&lt;u32&gt;</code>有效. 这个<code>Vec&lt;u32&gt;</code>然后可以被重新分解成一个<code>enum Descriptor</code>它完全描述了一种类型.</p>
 <p>总而言之,这有点迂回,但根本不会对生成的代码或运行时产生任何影响. 所有这些描述符函数都从发出的wasm文件中删除.</p>
-<a class="header" href="print.html#a球队" id="a球队"><h1>球队</h1></a>
+<a class="header" href="print.html#a团队" id="a团队"><h1>团队</h1></a>
 <p><code>wasm-bindgen</code>跟着<a href="https://github.com/rustwasm/team/blob/master/GOVERNANCE.md#repositories"><code>rustwasm</code>这里描述了组织的治理</a>:</p>
 <ul>
 <li>
 <p>所有拉取请求 (包括由团队成员提出的请求) 必须至少由另一个团队成员批准.</p>
 </li>
 <li>
-<p>关于设计,架构,突破性变化,权衡等的更大,更细微的决策是由团队共识做出的.</p>
+<p>关于设计,架构,突破性变化,权衡等的更大,更细微的决策是由 全体团队 做出的.</p>
 </li>
 </ul>
-<a class="header" href="print.html#a会员" id="a会员"><h2>会员</h2></a>
+<a class="header" href="print.html#a成员" id="a成员"><h2>成员</h2></a>
 <style>
 img {
     max-width: 117px;

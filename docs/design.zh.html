@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">8.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html" class="active"><strong aria-hidden="true">8.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">8.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">8.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">8.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">8.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">8.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">8.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">8.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">8.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">8.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">8.2.</strong> 团队</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能.参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI.参考</a></li><li><a href="reference.zh.html"><strong aria-hidden="true">7.</strong> 类型·参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">9.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html" class="active"><strong aria-hidden="true">9.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">9.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">9.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">9.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">9.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">9.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">9.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">9.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">9.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">9.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">9.2.</strong> 团队</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,16 +133,16 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="design.zh.html#a设计wasm-bindgen" id="a设计wasm-bindgen"><h1>设计<code>wasm-bindgen</code></h1></a>
-<p>本节旨在深入探讨如何<code>wasm-bindgen</code>今天内部工作,专门为Rust. 如果您将来阅读这篇文章很远,它可能不再是最新的,但随时可以打开一个问题,我们可以尝试回答问题和/或更新这个问题!</p>
+                        <a class="header" href="design.zh.html#wasm-bindgen的设计" id="wasm-bindgen的设计"><h1><code>wasm-bindgen</code>的设计</h1></a>
+<p>本节旨在: 深入探讨<code>wasm-bindgen</code>如何工作, 通过 Rust语言. 如果您很久前阅读这篇文章,它可能不再是最新的,但随时可以打开一个问题,我们可以尝试回答问题和/或更新这个问题!</p>
 <a class="header" href="design.zh.html#a基础-es模块" id="a基础-es模块"><h2>基础: ES模块</h2></a>
-<p>首先要了解的事情<code>wasm-bindgen</code>它是从根本上建立在ES模块的基础上的. 换句话说,这个工具采取了自以为是的文件的立场<em>应该被视为ES模块</em>. 这意味着你可以<code>import</code>从一个wasm文件,使用它<code>export</code>来自普通JS文件的-ed功能等.</p>
-<p>现在不幸的是,在撰写本文时,wasm interop的界面并不是很丰富. Wasm模块只能调用函数或导出专门处理的函数<code>i32</code>,<code>i64</code>,<code>f32</code>,和<code>f64</code>. 坏消息!</p>
-<p>这就是这个项目的用武之地是用类,JS对象,Rust结构,字符串等更丰富的类型来增强wasm模块的&quot;ABI&quot;. 但请记住,一切都基于ES模块!<code>wasm-bindgen</code>这意味着编译器实际上正在生成一个&quot;破坏&quot;的各种各样的wasm文件. <code>wasm-bindgen</code>例如,rustc发出的wasm文件没有我们想要的接口. 相反,它需要工具来后处理文件,生成一个<code>foo.js</code>和<code>foo_bg.wasm</code>文件. 该<code>foo.js</code>file是用JS表示的所需接口 (类,类型,字符串等) 和<code>foo_bg.wasm</code>模块简单地用作实现细节 (它是从原始版本轻微修改的<code>foo.wasm</code>文件) .</p>
-<p>随着WebAssembly中的更多功能随着时间的推移而稳定 (如主机绑定) ,JS文件有望变得越来越小. 它不太可能永远消失,但是<code>wasm-bindgen</code>旨在尽可能地遵循WebAssembly规范和建议以优化JS / Rust.</p>
-<a class="header" href="design.zh.html#a基础2-在rust中不引人注目" id="a基础2-在rust中不引人注目"><h2>基础#2: 在Rust中不引人注目</h2></a>
-<p>在事情上更生锈的一面<code>wasm-bindgen</code>箱子的设计理想情况下尽可能减少对Rust箱子的影响. 理想情况下<code>#[wasm_bindgen]</code>属性在关键位置注释,否则您将参加比赛. 该属性致力于既不发明新语法又适用于现有的习语.</p>
-<p>例如,库可能会暴露普通Rust中的一个函数,如下所示:</p>
+<p>首先要了解的事情是,<code>wasm-bindgen</code> 建立在ES模块的基础上的. 换句话说,这个工具采取了 自定义的文件 <em>被视为ES模块</em>. 这意味着你可以<code>import</code>一个wasm文件 ,使用<code>export</code>得到一个普通 JS文件 的函数等.</p>
+<p>现在不幸的是,在撰写本文时, <strong>wasm interop</strong> 的接口并不是很丰富. Wasm模块只能调用函数 或 导出专门处理<code>i32</code>,<code>i64</code>,<code>f32</code>,和<code>f64</code>之类的参数. 这是个坏消息!</p>
+<p>但这也是这个项目的用武之地, 通过使用 类,JS对象,Rust结构,字符串 等更丰富的类型来增强 wasm模块 的 &quot;ABI&quot;. 但请记住,一切都基于 ES模块! 使用<code>wasm-bindgen</code>意味着编译器实际上正在生成一个&quot;已经被破坏&quot;的各种各样的wasm 文件. 例如,rustc 发出的 wasm文件 没有我们想要的接口. 相反,它需要 wasm-bindgen 处理文件,生成一个<code>foo.js</code>和<code>foo_bg.wasm</code>文件. 该<code>foo.js</code>是用 JS 表示的所需接口 (类,类型,字符串等) 和<code>foo_bg.wasm</code>模块 简单地用作实现细节 (它是从原始版本 <code>foo.wasm</code> 轻微修改的文件) .</p>
+<p>随着 WebAssembly 中的 更多功能 随着时间的推移而稳定 (如主机绑定) , JS文件 有望变得越来越小. 它不太可能永远消失,但是<code>wasm-bindgen</code>旨在尽可能地遵循 WebAssembly规范和建议 来优化 JS/Rust.</p>
+<a class="header" href="design.zh.html#a基础2-在-rust-中不引人注目" id="a基础2-在-rust-中不引人注目"><h2>基础#2: 在 Rust 中不引人注目</h2></a>
+<p>在 rsut编程方面上, <code>wasm-bindgen</code>箱子的设计理想是尽可能减少对 在 Rust 编码的影响. 理想情况下<code>#[wasm_bindgen]</code>属性在关键位置 <code>#注释</code>,不然您会看不上这个项目. 该属性致力于既不发明新语法又适用于现有的习语.</p>
+<p>例如,想要暴露普通 Rust 中的一个函数,如下所示:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -150,7 +150,7 @@ pub fn greet(name: &amp;str) -&gt; String {
     // ...
 }
 #}</code></pre></pre>
-<p>与<code>#[wasm_bindgen]</code>将它导出到JS所需要做的就是:</p>
+<p><code>#[wasm_bindgen]</code>将它 导出到JS 所需要做的就是:</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -159,7 +159,7 @@ pub fn greet(name: &amp;str) -&gt; String {
     // ...
 }
 #}</code></pre></pre>
-<p>此外,这里的设计对Rust的干预最少,这样我们就可以轻松利用即将到来的优势<a href="https://github.com/WebAssembly/host-bindings">主机绑定</a>提案. 理想情况下,您只需升级<code>wasm-bindgen</code>-the-crate以及您的工具链,您可以立即获得对主机绑定的原始访问权限! (虽然这仍然有点远......)</p>
+<p>此外,这里的设计对 Rust 的干预最少,这样我们就可以轻松利用即将到来的优势<a href="https://github.com/WebAssembly/host-bindings">主机绑定</a>提案. 理想情况下,您只需升级<code>wasm-bindgen</code>以及您的工具链,您可以立即获得对主机绑定的原始访问权限! (虽然这仍然有点远......)</p>
 
                     </main>
 

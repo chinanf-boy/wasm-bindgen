@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html" class="active"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">8.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">8.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">8.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">8.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">8.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">8.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">8.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">8.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">8.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">8.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">8.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">8.2.</strong> 团队</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduction.zh.html">介绍</a></li><li class="spacer"></li><li><a href="basic-usage.zh.html"><strong aria-hidden="true">1.</strong> 基本用法</a></li><li><a href="what-just-happened.zh.html"><strong aria-hidden="true">2.</strong> 刚刚发生了什么?</a></li><li><a href="what-else-can-we-do.zh.html" class="active"><strong aria-hidden="true">3.</strong> 我们还能做什么?</a></li><li><a href="closures.zh.html"><strong aria-hidden="true">4.</strong> 闭包</a></li><li><a href="feature-reference.zh.html"><strong aria-hidden="true">5.</strong> 功能.参考</a></li><li><a href="cli-reference.zh.html"><strong aria-hidden="true">6.</strong> CLI.参考</a></li><li><a href="reference.zh.html"><strong aria-hidden="true">7.</strong> 类型·参考</a></li><li class="spacer"></li><li><a href="contributing.zh.html"><strong aria-hidden="true">9.</strong> 贡献</a></li><li><ol class="section"><li><a href="design.zh.html"><strong aria-hidden="true">9.1.</strong> 内部设计</a></li><li><ol class="section"><li><a href="design/js-objects-in-rust.zh.html"><strong aria-hidden="true">9.1.1.</strong> Rust中的JS对象</a></li><li><a href="design/exporting-rust.zh.html"><strong aria-hidden="true">9.1.2.</strong> 将 函数 导出到JS</a></li><li><a href="design/exporting-rust-struct.zh.html"><strong aria-hidden="true">9.1.3.</strong> 将 结构 导出到JS</a></li><li><a href="design/export-customization.zh.html"><strong aria-hidden="true">9.1.4.</strong> 定制 导出</a></li><li><a href="design/importing-js.zh.html"><strong aria-hidden="true">9.1.5.</strong> 从 JS 导入函数</a></li><li><a href="design/importing-js-struct.zh.html"><strong aria-hidden="true">9.1.6.</strong> 从 JS 导入一个类</a></li><li><a href="design/import-customization.zh.html"><strong aria-hidden="true">9.1.7.</strong> 定制 导入 </a></li><li><a href="design/rust-type-conversions.zh.html"><strong aria-hidden="true">9.1.8.</strong> Rust类型转换</a></li><li><a href="design/describe.zh.html"><strong aria-hidden="true">9.1.9.</strong> 在wasm-bindgen中的类型</a></li></ol></li><li><a href="team.zh.html"><strong aria-hidden="true">9.2.</strong> 团队</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -134,8 +134,11 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="what-else-can-we-do.zh.html#a我们还能做什么" id="a我们还能做什么"><h1>我们还能做什么?</h1></a>
-<p>多得多!这里介绍了您可以在此项目中使用的各种功能. 你也可以<a href="https://webassembly.studio/?f=t61j18noqz">在线探索此代码</a>:</p>
-<pre><code class="language-rust ignore">// src/lib.rs
+<p>多得多! 这里介绍了您可以在此项目中使用的各种功能. 你也可以<a href="https://webassembly.studio/?f=t61j18noqz">在线探索此代码</a>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// src/lib.rs
 #![feature(proc_macro, wasm_custom_section, wasm_import_module)]
 
 extern crate wasm_bindgen;
@@ -215,9 +218,216 @@ impl Bar {
         }
     }
 }
+#}</code></pre></pre>
+<p>此宏调用,生成的JS绑定<a href="https://gist.github.com/alexcrichton/3d85c505e785fb8ff32e2c1cf9618367">看起来像这样 <code>翻墙</code></a>. 你可以像这样查看它们:</p>
+<p><details></p>
+<p><summary> 生成的JS绑定 </summary></p>
+<pre><code class="language-js">/* tslint:disable */
+import * as wasm from './js_hello_world_wasm'; // imports from wasm file
+
+import {
+    bar_on_reset
+} from './index';
+
+import {
+    Awesome
+} from './index';
+
+let cachedEncoder = null;
+
+function textEncoder() {
+    if (cachedEncoder)
+        return cachedEncoder;
+    cachedEncoder = new TextEncoder('utf-8');
+    return cachedEncoder;
+}
+
+let cachedUint8Memory = null;
+
+function getUint8Memory() {
+    if (cachedUint8Memory === null ||
+        cachedUint8Memory.buffer !== wasm.memory.buffer)
+        cachedUint8Memory = new Uint8Array(wasm.memory.buffer);
+    return cachedUint8Memory;
+}
+
+function passStringToWasm(arg) {
+    if (typeof(arg) !== 'string')
+        throw new Error('expected a string argument');
+    const buf = textEncoder().encode(arg);
+    const len = buf.length;
+    const ptr = wasm.__wbindgen_malloc(len);
+    getUint8Memory().set(buf, ptr);
+    return [ptr, len];
+}
+
+let slab = [];
+let slab_next = 0;
+
+function addHeapObject(obj) {
+    if (slab_next == slab.length)
+        slab.push(slab.length + 1);
+    const idx = slab_next;
+    const next = slab[idx];
+    slab_next = next;
+    slab[idx] = {
+        obj,
+        cnt: 1
+    };
+    return idx &lt;&lt; 1;
+}
+
+let cachedDecoder = null;
+
+function textDecoder() {
+    if (cachedDecoder)
+        return cachedDecoder;
+    cachedDecoder = new TextDecoder('utf-8');
+    return cachedDecoder;
+}
+
+function getStringFromWasm(ptr, len) {
+    const mem = getUint8Memory();
+    const slice = mem.slice(ptr, ptr + len);
+    const ret = textDecoder().decode(slice);
+    return ret;
+}
+
+let stack = [];
+
+function getObject(idx) {
+    if ((idx &amp; 1) === 1) {
+        return stack[idx &gt;&gt; 1];
+    } else {
+        const val = slab[idx &gt;&gt; 1];
+
+        return val.obj;
+
+    }
+}
+
+export function __wbg_f_bar_on_reset(ptr0, len0, arg1) {
+    bar_on_reset(getStringFromWasm(ptr0, len0), getObject(arg1))
+}
+
+export function __wbg_s_Awesome_new() {
+    return addHeapObject(new Awesome());
+}
+
+export function __wbg_s_Awesome_get_internal(arg0) {
+    return Awesome.prototype.get_internal.call(getObject(arg0));
+}
+
+export function concat(arg0, arg1) {
+    const [ptr0, len0] = passStringToWasm(arg0);
+    const [ptr1, len1] = passStringToWasm(arg1);
+    try {
+        const ret = wasm.concat(ptr0, len0, ptr1, len1);
+
+        const ptr = wasm.__wbindgen_boxed_str_ptr(ret);
+        const len = wasm.__wbindgen_boxed_str_len(ret);
+        const realRet = getStringFromWasm(ptr, len);
+        wasm.__wbindgen_boxed_str_free(ret);
+        return realRet;
+
+    } finally {
+
+        wasm.__wbindgen_free(ptr0, len0);
+
+        wasm.__wbindgen_free(ptr1, len1);
+
+    }
+}
+
+export class Foo {
+    constructor(ptr) {
+        this.ptr = ptr;
+    }
+
+    free() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+        wasm.__wbg_foo_free(ptr);
+    }
+    static new() {
+        const ret = wasm.foo_new();
+        return new Foo(ret);
+
+    }
+    add(arg0) {
+        const ret = wasm.foo_add(this.ptr, arg0);
+        return ret;
+    }
+    add_other(arg0) {
+        const ret = wasm.foo_add_other(this.ptr, arg0.ptr);
+        return ret;
+    }
+    consume_other(arg0) {
+        const ptr0 = arg0.ptr;
+        arg0.ptr = 0;
+        const ret = wasm.foo_consume_other(this.ptr, ptr0);
+        return ret;
+    }
+}
+
+export class Bar {
+    constructor(ptr) {
+        this.ptr = ptr;
+    }
+
+    free() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+        wasm.__wbg_bar_free(ptr);
+    }
+    static from_str(arg0, arg1) {
+        const [ptr0, len0] = passStringToWasm(arg0);
+        const idx1 = addHeapObject(arg1);
+        try {
+            const ret = wasm.bar_from_str(ptr0, len0, idx1);
+            return new Bar(ret);
+
+        } finally {
+
+            wasm.__wbindgen_free(ptr0, len0);
+
+        }
+    }
+    reset(arg0) {
+        const [ptr0, len0] = passStringToWasm(arg0);
+        try {
+            const ret = wasm.bar_reset(this.ptr, ptr0, len0);
+            return ret;
+        } finally {
+
+            wasm.__wbindgen_free(ptr0, len0);
+
+        }
+    }
+}
+
+function dropRef(idx) {
+    let obj = slab[idx &gt;&gt; 1];
+    obj.cnt -= 1;
+    if (obj.cnt &gt; 0)
+        return;
+    // If we hit 0 then free up our space in the slab
+    slab[idx &gt;&gt; 1] = slab_next;
+    slab_next = idx &gt;&gt; 1;
+}
+
+export const __wbindgen_object_drop_ref = dropRef;
+
+export const __wbindgen_throw =
+    function(ptr, len) {
+        throw new Error(getStringFromWasm(ptr, len));
+    };
 </code></pre>
-<p>为此宏调用生成的JS绑定<a href="https://gist.github.com/alexcrichton/3d85c505e785fb8ff32e2c1cf9618367">看起来像这样</a>. 你可以像这样在行动中查看它们:</p>
-<p>和我们相应的<code>index.js</code>:</p>
+<p></details></p>
+<ul>
+<li></li>
+</ul>
+<p>和我们使用它,在<code>index.js</code>:</p>
 <pre><code class="language-js">import { Foo, Bar, concat } from &quot;./js_hello_world&quot;;
 import { booted } from &quot;./js_hello_world_wasm&quot;;
 
