@@ -1,7 +1,10 @@
 
 <meta charset="utf-8"/>
 
-# `wasm-bindgen` 
+# `wasm-bindgen` [![translate-svg]][translate-list]
+
+[translate-svg]: http://llever.com/translate.svg
+[translate-list]: https://github.com/chinanf-boy/chinese-translate-list
 
 **促进wasm模块和JavaScript之间的高级交互.**
 
