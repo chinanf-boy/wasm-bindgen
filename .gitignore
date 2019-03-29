@@ -8,3 +8,4 @@ npm-shrinkwrap.json
 yarn.lock
 *.d.ts
 ./wasm-bindgen
+source
